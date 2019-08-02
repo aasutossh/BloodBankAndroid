@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">BloodBankAndroid</string>
+
+    <string name="tv_main_action">What do you want to do? Donate blood, Request Blood</string>
+
+    <string name="btn_donate_blood">Donate Blood</string>
+    <string name="btn_request_blood">Request Blood</string>
     <string name="btn_sign_out">Sign Out</string>
+    <string name="btn_show_map">Show Map</string>
+
 </resources>
