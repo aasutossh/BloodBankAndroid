@@ -20,17 +20,22 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE = 2525;
-    List<AuthUI.IdpConfig> providers;
+//    private static final int REQUEST_CODE = 2525;
+//    List<AuthUI.IdpConfig> providers;
     Button btnSighOut;
+//    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize Firebase Auth
+//        mAuth = FirebaseAuth.getInstance();
+//
         btnSighOut = findViewById(R.id.btnSignOut);
 
         btnSighOut.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 btnSighOut.setEnabled(false);
-                                showSignInOptions();
+//                                showSignInOptions();
+                                startActivity(new Intent(getApplicationContext(), FireBaseUIActivity.class));
                             }
                         }
                         )
@@ -57,51 +63,46 @@ public class MainActivity extends AppCompatActivity {
         });
 
 //        Initialize providers
-        providers = Arrays.asList(
-            new AuthUI.IdpConfig.EmailBuilder().build(),
+//        providers = Arrays.asList(
+//            new AuthUI.IdpConfig.EmailBuilder().build(),
 //            new AuthUI.IdpConfig.FacebookBuilder().build(),
-            new AuthUI.IdpConfig.PhoneBuilder().build(),
-            new AuthUI.IdpConfig.GoogleBuilder().build()
-        );
+//            new AuthUI.IdpConfig.PhoneBuilder().build(),
+//            new AuthUI.IdpConfig.GoogleBuilder().build()
+//        );
+//
+//        showSignInOptions();
+//    }
 
-        showSignInOptions();
-    }
 
-    private void showSignInOptions() {
-        startActivityForResult(
-                AuthUI.getInstance().createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setTheme(R.style.MyTheme)
-                .build(), REQUEST_CODE
-        );
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == REQUEST_CODE) {
-            IdpResponse response = IdpResponse.fromResultIntent(data);
-            if (resultCode == RESULT_OK) {
-//                Get user
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                show email on toast
-
-                try {
-                    Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
-                } catch (NullPointerException n) {
-                    Toast.makeText(this, n.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-                btnSighOut.setEnabled(true);
-
-            }
-            else {
-                try {
-                    Toast.makeText(this, response.getError().getMessage(), Toast.LENGTH_LONG).show();
-                } catch (NullPointerException n) {
-                    Toast.makeText(this, n.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
+//
+//    private void showSignInOptions() {
+//        startActivityForResult(
+//                AuthUI.getInstance().createSignInIntentBuilder()
+//                .setAvailableProviders(providers)
+//                .setTheme(R.style.MyTheme)
+//                .build(), REQUEST_CODE
+//        );
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode == REQUEST_CODE) {
+//            IdpResponse response = IdpResponse.fromResultIntent(data);
+//            if (resultCode == RESULT_OK) {
+////                Get user
+//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+////                show email on toast
+//
+//                assert user != null;
+//                Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
+//                btnSighOut.setEnabled(true);
+//            }
+//            else {
+//                    assert response != null;
+//                    Toast.makeText(this, Objects.requireNonNull(response.getError()).getMessage(), Toast.LENGTH_LONG).show();
+//            }
+////            finish();
+//        }
     }
 }

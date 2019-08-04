@@ -6,61 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnSignOut"
-        android:layout_width="154dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="62dp"
-        android:enabled="false"
-        android:text="@string/btn_sign_out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="196dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginBottom="83dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:text="@string/tv_main_action"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnRequestBlood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRequestBlood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/btn_request_blood"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnDonateBlood"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnDonateBlood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/btn_donate_blood"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintBottom_toTopOf="@+id/btnShowMap"
+        app:layout_constraintEnd_toEndOf="@+id/btnRequestBlood"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnRequestBlood"
+        app:layout_constraintTop_toBottomOf="@+id/btnRequestBlood" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnShowMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/btn_show_map"
         app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintEnd_toEndOf="@+id/btnDonateBlood"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/btnDonateBlood"
+        app:layout_constraintTop_toBottomOf="@+id/btnDonateBlood" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="201dp"
+        android:text="@string/btn_sign_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnShowMap"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/btnShowMap"
+        app:layout_constraintTop_toBottomOf="@+id/btnShowMap" />
 </androidx.constraintlayout.widget.ConstraintLayout>
