@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/blood"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".DonateBloodActivity"></activity>
+        <activity android:name=".RequestBloodActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".FireBaseUIActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

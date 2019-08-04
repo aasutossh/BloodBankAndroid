@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 //    private static final int REQUEST_CODE = 2525;
 //    List<AuthUI.IdpConfig> providers;
     Button btnSighOut;
+    Button btnRequestBlood;
+    Button btnDonateBlood;
+    Button btnShowMap;
 //    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 //        mAuth = FirebaseAuth.getInstance();
 //
         btnSighOut = findViewById(R.id.btnSignOut);
+        btnDonateBlood = findViewById(R.id.btnDonateBlood);
+        btnRequestBlood = findViewById(R.id.btnRequestBlood);
+        btnShowMap = findViewById(R.id.btnShowMap);
+
 
         btnSighOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,47 +69,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Initialize providers
-//        providers = Arrays.asList(
-//            new AuthUI.IdpConfig.EmailBuilder().build(),
-//            new AuthUI.IdpConfig.FacebookBuilder().build(),
-//            new AuthUI.IdpConfig.PhoneBuilder().build(),
-//            new AuthUI.IdpConfig.GoogleBuilder().build()
-//        );
-//
-//        showSignInOptions();
-//    }
+        btnDonateBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DonateBloodActivity.class));
+            }
+        });
+        btnRequestBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RequestBloodActivity.class));
+            }
+        });
 
+//        btnShowMap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this, ShowMapActivity.class));
+//            }
+//        });
 
-//
-//    private void showSignInOptions() {
-//        startActivityForResult(
-//                AuthUI.getInstance().createSignInIntentBuilder()
-//                .setAvailableProviders(providers)
-//                .setTheme(R.style.MyTheme)
-//                .build(), REQUEST_CODE
-//        );
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode == REQUEST_CODE) {
-//            IdpResponse response = IdpResponse.fromResultIntent(data);
-//            if (resultCode == RESULT_OK) {
-////                Get user
-//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-////                show email on toast
-//
-//                assert user != null;
-//                Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
-//                btnSighOut.setEnabled(true);
-//            }
-//            else {
-//                    assert response != null;
-//                    Toast.makeText(this, Objects.requireNonNull(response.getError()).getMessage(), Toast.LENGTH_LONG).show();
-//            }
-////            finish();
-//        }
     }
 }
