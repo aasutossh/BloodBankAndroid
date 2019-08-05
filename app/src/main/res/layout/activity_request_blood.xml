@@ -8,80 +8,161 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="126dp" />
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="48dp"
+        android:text="@string/tv_name"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/etName"
+        app:layout_constraintEnd_toStartOf="@+id/etName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etName" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="383dp" />
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="61dp"
+        android:text="@string/tv_location"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLocation"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintEnd_toStartOf="@+id/btnLocation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnLocation" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="122dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="250dp"
         android:text="@string/tv_req_blood"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/etPhoneNum"
+        android:layout_width="179dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="13dp"
         android:ems="10"
+        android:hint="@string/tv_phone_num"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="204dp" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
+        app:layout_constraintEnd_toEndOf="@+id/btnLocation"
+        app:layout_constraintStart_toStartOf="@+id/btnLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etAmount" />
 
     <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/etName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="14dp"
         android:ems="10"
+        android:hint="@string/et_hint_full_name"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="100dp" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="276dp" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerBloodGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/spinnerBloodGroup"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="196dp" />
+        android:text="@string/tv_blood_group"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerBloodGroup"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/spinnerBloodGroup" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="276dp" />
+        android:layout_marginBottom="195dp"
+        android:text="@string/tv_phone_num"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.704"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="117dp"
-        android:layout_height="30dp"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="156dp" />
+        android:id="@+id/spinnerBloodGroup"
+        android:layout_width="123dp"
+        android:layout_height="0dp"
+
+        android:layout_marginBottom="19dp"
+        android:entries="@array/spinner_blood_group"
+        app:layout_constraintBottom_toTopOf="@+id/etAmount"
+        app:layout_constraintEnd_toEndOf="@+id/etAmount"
+        app:layout_constraintStart_toStartOf="@+id/etAmount"
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <Button
+        android:id="@+id/btnLocation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="69dp"
+        android:text="@string/btn_location"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPostRequest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneNum" />
+
+    <Button
+        android:id="@+id/btnPostRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_post_my_request"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLocation" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_amount"
+        app:layout_constraintBottom_toBottomOf="@+id/etAmount"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/etAmount" />
+
+    <EditText
+        android:id="@+id/etAmount"
+        android:layout_width="214dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="18dp"
+        android:ems="10"
+        android:hint="@string/et_amount"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/etPhoneNum"
+        app:layout_constraintEnd_toEndOf="@+id/etPhoneNum"
+        app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBloodGroup" />
 </androidx.constraintlayout.widget.ConstraintLayout>

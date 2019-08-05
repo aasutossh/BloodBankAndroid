@@ -4,15 +4,34 @@
     <string name="tv_main_action">What do you want to do? Donate blood, Request Blood</string>
     <string name="tv_req_blood">Request Blood</string>
     <string name="tv_don_blood">Donate Blood</string>
-    <string name="tv_name">Name</string>
-    <string name="tv_name">Name</string>
-    <string name="tv_name">Name</string>
+    <string name="tv_blood_group">Blood Group</string>
+    <string name="tv_phone_num">Phone Number</string>
+    <string name="tv_location">Location</string>
     <string name="tv_name">Name</string>
 
     <string name="btn_donate_blood">Donate Blood</string>
     <string name="btn_request_blood">Request Blood</string>
     <string name="btn_sign_out">Sign Out</string>
     <string name="btn_show_map">Show Map</string>
+    <string name="btn_post_my_request">Post my Request</string>
+    <string name="btn_location">Choose location</string>
+
+    <string name="et_hint_full_name">Full Name</string>
+    <string name="et_hint_phone_number">Phone Number</string>
+
+    <string-array name="spinner_blood_group">
+        <item>A +ve</item>
+        <item>A -ve</item>
+        <item>B +ve</item>
+        <item>B -ve</item>
+        <item>AB +ve</item>
+        <item>AB -ve</item>
+        <item>O +ve</item>
+        <item>O -ve</item>
+    </string-array>
+
+    <string name="tv_amount">Amount</string>
+    <string name="et_amount">Pints of blood needed</string>
 
 
 </resources>
