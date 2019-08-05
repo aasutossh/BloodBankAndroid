@@ -32,6 +32,7 @@
 
     <string name="tv_amount">Amount</string>
     <string name="et_amount">Pints of blood needed</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>
