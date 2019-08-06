@@ -7,12 +7,12 @@
     tools:context=".FireBaseUIActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ivIcon"
+        android:layout_width="108dp"
+        android:layout_height="110dp"
         android:layout_marginTop="46dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blood" />
+        app:srcCompat="@drawable/ic_blood_donation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
