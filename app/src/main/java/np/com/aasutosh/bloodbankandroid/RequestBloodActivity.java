@@ -65,7 +65,7 @@ public class RequestBloodActivity extends AppCompatActivity {
 //            TODO: store name to db
             String id = databaseReference.push().getKey();
 
-//            Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, Date date, int amount)
+//            Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, Date date, int quantity)
             Request request = new Request(nameText, phoneText, bloodGroup, "request", Integer.parseInt(amountText));
             assert id != null;
             Toast.makeText(this, nameText + bloodGroup+phoneText+amountText, Toast.LENGTH_SHORT).show();

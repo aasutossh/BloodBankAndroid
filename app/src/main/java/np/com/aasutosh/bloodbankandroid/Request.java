@@ -1,7 +1,5 @@
 package np.com.aasutosh.bloodbankandroid;
 
-import java.util.Date;
-
 public class Request {
     String name;
     String phoneNum;
@@ -10,23 +8,23 @@ public class Request {
 //    String location;
     String typeOfRequest; // Donate or request
 //    Date date;
-    int amount;
-    public Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, int amount) {
+    int quantity;
+    public Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, int quantity) {
         this.name = name;
         this.phoneNum = phoneNum;
         this.bloodGroup = bloodGroup;
 //        this.location = location;
         this.typeOfRequest = typeOfRequest;
 //        this.date = date;
-        this.amount = amount;
+        this.quantity = quantity;
     }
 
 //    public Date getDate() {
 //        return date;
 //    }
 
-    public int getAmount() {
-        return amount;
+    public int getQuantity() {
+        return quantity;
     }
 
     public String getName() {
@@ -48,4 +46,5 @@ public class Request {
     public String getTypeOfRequest() {
         return typeOfRequest;
     }
+    public Request() { }
 }

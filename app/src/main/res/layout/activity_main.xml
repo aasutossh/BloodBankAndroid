@@ -6,6 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnRequestBlood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/btn_request_blood"
+        app:layout_constraintBottom_toTopOf="@+id/btnDonateBlood"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnDonateBlood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/btn_donate_blood"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowMap"
+        app:layout_constraintEnd_toEndOf="@+id/btnRequestBlood"
+        app:layout_constraintStart_toStartOf="@+id/btnRequestBlood"
+        app:layout_constraintTop_toBottomOf="@+id/btnRequestBlood" />
+
+    <Button
+        android:id="@+id/btnShowMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="@string/btn_show_map"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowList"
+        app:layout_constraintEnd_toEndOf="@+id/btnDonateBlood"
+        app:layout_constraintStart_toStartOf="@+id/btnDonateBlood"
+        app:layout_constraintTop_toBottomOf="@+id/btnDonateBlood" />
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="139dp"
+        android:text="@string/btn_sign_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnShowList"
+        app:layout_constraintStart_toStartOf="@+id/btnShowList"
+        app:layout_constraintTop_toBottomOf="@+id/btnShowList" />
+
+    <Button
+        android:id="@+id/btnShowList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="Show List"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
+        app:layout_constraintEnd_toEndOf="@+id/btnShowMap"
+        app:layout_constraintStart_toStartOf="@+id/btnShowMap"
+        app:layout_constraintTop_toBottomOf="@+id/btnShowMap" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="196dp"
@@ -19,52 +74,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnRequestBlood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/btn_request_blood"
-        app:layout_constraintBottom_toTopOf="@+id/btnDonateBlood"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/btnDonateBlood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/btn_donate_blood"
-        app:layout_constraintBottom_toTopOf="@+id/btnShowMap"
-        app:layout_constraintEnd_toEndOf="@+id/btnRequestBlood"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btnRequestBlood"
-        app:layout_constraintTop_toBottomOf="@+id/btnRequestBlood" />
-
-    <Button
-        android:id="@+id/btnShowMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/btn_show_map"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
-        app:layout_constraintEnd_toEndOf="@+id/btnDonateBlood"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="@+id/btnDonateBlood"
-        app:layout_constraintTop_toBottomOf="@+id/btnDonateBlood" />
-
-    <Button
-        android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="201dp"
-        android:text="@string/btn_sign_out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnShowMap"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toStartOf="@+id/btnShowMap"
-        app:layout_constraintTop_toBottomOf="@+id/btnShowMap" />
 </androidx.constraintlayout.widget.ConstraintLayout>
