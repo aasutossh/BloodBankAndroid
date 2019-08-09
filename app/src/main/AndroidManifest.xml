@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="np.com.aasutosh.bloodbankandroid">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar"/>
-        android:theme="@style/AppTheme">
         <activity android:name=".FeedActivity"></activity>
         <activity android:name=".RequestBloodActivity" />
         <activity android:name=".DonateBloodActivity" />
@@ -32,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PermissionsActivity" />
     </application>
 
 </manifest>
