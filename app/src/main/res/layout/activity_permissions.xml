@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/blood" />
+            android:src="@drawable/ic_blood_donation" />
 
         <TextView
             android:layout_width="wrap_content"
