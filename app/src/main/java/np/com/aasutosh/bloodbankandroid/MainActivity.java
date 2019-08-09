@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnRequestBlood;
     Button btnDonateBlood;
     Button btnShowMap;
+    Button btnShowList;
 //    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnDonateBlood = findViewById(R.id.btnDonateBlood);
         btnRequestBlood = findViewById(R.id.btnRequestBlood);
         btnShowMap = findViewById(R.id.btnShowMap);
+        btnShowList = findViewById(R.id.btnShowList);
 
 
         btnSighOut.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +84,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//        btnShowMap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this, ShowMapActivity.class));
+//            }
+//        });
+        btnShowList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+                startActivity(intent);
+            }
+        });
         btnShowMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
