@@ -5,9 +5,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/blood"
+        android:icon="@drawable/ic_blood_donation"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/blood"
+        android:roundIcon="@drawable/ic_blood_donation"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">

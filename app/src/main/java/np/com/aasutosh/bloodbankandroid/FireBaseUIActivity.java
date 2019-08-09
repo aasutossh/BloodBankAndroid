@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -27,6 +28,7 @@ public class FireBaseUIActivity extends AppCompatActivity {
     private static final int REQUEST_CODE = 2525;
     List<AuthUI.IdpConfig> providers;
     Button btnSighOut;
+    ImageView imageView;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class FireBaseUIActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btnSighOut = findViewById(R.id.btnSignOut);
+        imageView = findViewById(R.id.ivIcon);
+//        imageView.bringToFront();
 
         btnSighOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +92,7 @@ public class FireBaseUIActivity extends AppCompatActivity {
         startActivityForResult(
                 AuthUI.getInstance().createSignInIntentBuilder()
                         .setAvailableProviders(providers)
+                        .setLogo(R.drawable.ic_blood_donation)
                         .setTheme(R.style.MyTheme)
                         .build(), REQUEST_CODE
         );
