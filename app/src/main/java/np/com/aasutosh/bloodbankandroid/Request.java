@@ -2,29 +2,22 @@ package np.com.aasutosh.bloodbankandroid;
 
 public class Request {
     String name;
-    String phoneNum;
     String bloodGroup;
-//    Use maps format "Latitude, Longitude"
-//    String location;
-    String typeOfRequest; // Donate or request
-//    Date date;
     int quantity;
-    public Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, int quantity) {
+    String phoneNum;
+    //    Use maps format "Latitude, Longitude"
+    String time;
+    String date;
+    String location;
+
+    public Request(String name, String bloodGroup, int quantity, String phoneNum, String time, String date, String location) {
         this.name = name;
         this.phoneNum = phoneNum;
         this.bloodGroup = bloodGroup;
-//        this.location = location;
-        this.typeOfRequest = typeOfRequest;
-//        this.date = date;
+        this.location = location;
+        this.date = date;
+        this.time = time;
         this.quantity = quantity;
-    }
-
-//    public Date getDate() {
-//        return date;
-//    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public String getName() {
@@ -39,12 +32,21 @@ public class Request {
         return bloodGroup;
     }
 
-//    public String getLocation() {
-//        return location;
-//    }
-
-    public String getTypeOfRequest() {
-        return typeOfRequest;
+    public String getLocation() {
+        return location;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     public Request() { }
 }

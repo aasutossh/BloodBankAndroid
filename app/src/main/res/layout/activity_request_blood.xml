@@ -2,167 +2,215 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RequestBloodActivity">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="0dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/tv_name"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/etName"
-        app:layout_constraintEnd_toStartOf="@+id/etName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etName" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="61dp"
-        android:text="@string/tv_location"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnLocation"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/btnLocation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnLocation" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="250dp"
-        android:text="@string/tv_req_blood"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etPhoneNum"
-        android:layout_width="179dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="13dp"
-        android:ems="10"
-        android:hint="@string/tv_phone_num"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
-        app:layout_constraintEnd_toEndOf="@+id/btnLocation"
-        app:layout_constraintStart_toStartOf="@+id/btnLocation"
-        app:layout_constraintTop_toBottomOf="@+id/etAmount" />
-
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="122dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="14dp"
-        android:ems="10"
-        android:hint="@string/et_hint_full_name"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerBloodGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/spinnerBloodGroup"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_blood_group"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerBloodGroup"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/spinnerBloodGroup" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="195dp"
-        android:text="@string/tv_phone_num"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintHorizontal_bias="0.704"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Spinner
-        android:id="@+id/spinnerBloodGroup"
-        android:layout_width="123dp"
-        android:layout_height="0dp"
-
-        android:layout_marginBottom="19dp"
-        android:entries="@array/spinner_blood_group"
-        app:layout_constraintBottom_toTopOf="@+id/etAmount"
-        app:layout_constraintEnd_toEndOf="@+id/etAmount"
-        app:layout_constraintStart_toStartOf="@+id/etAmount"
-        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <Button
         android:id="@+id/btnLocation"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="69dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignEnd="@+id/tvLocation"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="144dp"
         android:text="@string/btn_location"
         android:textAllCaps="false"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnPostRequest"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnChooseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/etChooseDate"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="12dp"
+        android:text="Choose Date"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
+        app:layout_constraintStart_toStartOf="@+id/btnLocation" />
+
+    <Button
+        android:id="@+id/btnChooseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/etChooseTime"
+        android:layout_marginTop="11dp"
+        android:text="Choose Time"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="@+id/btnChooseDate"
         app:layout_constraintTop_toBottomOf="@+id/etPhoneNum" />
 
     <Button
         android:id="@+id/btnPostRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="15dp"
         android:text="@string/btn_post_my_request"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLocation" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_amount"
-        app:layout_constraintBottom_toBottomOf="@+id/etAmount"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/etAmount" />
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="154dp"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="99dp"
+        android:layout_marginBottom="101dp"
+        android:layout_toEndOf="@id/tvName"
+        android:ems="10"
+        android:hint="@string/et_hint_full_name"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAmount"
+        app:layout_constraintStart_toStartOf="@+id/spinnerBloodGroup"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etAmount"
-        android:layout_width="214dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="18dp"
+        android:layout_width="63dp"
+        android:layout_height="39dp"
+        android:layout_alignEnd="@id/tvAmount"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="19dp"
         android:ems="10"
         android:hint="@string/et_amount"
         android:inputType="number"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/etPhoneNum"
-        app:layout_constraintEnd_toEndOf="@+id/etPhoneNum"
         app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
         app:layout_constraintTop_toBottomOf="@+id/spinnerBloodGroup" />
+
+    <EditText
+        android:id="@+id/etPhoneNum"
+        android:layout_width="148dp"
+        android:layout_height="42dp"
+        android:layout_alignEnd="@id/tvPhoneNum"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="84dp"
+        android:ems="10"
+        android:hint="@string/tv_phone_num"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnChooseDate"
+        app:layout_constraintStart_toStartOf="@+id/btnChooseTime"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+    <EditText
+        android:id="@+id/etChooseTime"
+        android:layout_width="144dp"
+        android:layout_height="39dp"
+        android:layout_alignBottom="@id/tvLocation"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="77dp"
+        android:ems="10"
+        android:hint="Choose Time"
+        android:inputType="time"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/etChooseDate"
+        app:layout_constraintEnd_toEndOf="@+id/etChooseDate"
+        app:layout_constraintTop_toBottomOf="@+id/etAmount" />
+
+    <EditText
+        android:id="@+id/etChooseDate"
+        android:layout_width="142dp"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@id/etChooseTime"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="Choose Date"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
+        app:layout_constraintEnd_toEndOf="@+id/tvLocation"
+        app:layout_constraintTop_toTopOf="@+id/btnChooseDate" />
+
+    <Spinner
+        android:id="@+id/spinnerBloodGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/tvBloodDon"
+        android:layout_marginTop="157dp"
+        android:entries="@array/spinner_blood_group"
+        app:layout_constraintStart_toStartOf="@+id/etAmount"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="54dp"
+        android:text="@string/tv_location"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etChooseDate" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="36dp"
+        android:text="@string/tv_name"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tvBloodDon"
+        android:layout_marginBottom="36dp"
+        android:text="@string/tv_amount"
+        app:layout_constraintBottom_toTopOf="@+id/tvPhoneNum"
+        app:layout_constraintEnd_toEndOf="@+id/tvPhoneNum" />
+
+    <TextView
+        android:id="@+id/tvPhoneNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:text="@string/tv_phone_num"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/etChooseTime"
+        app:layout_constraintEnd_toEndOf="@+id/etChooseTime" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_blood_group"
+        app:layout_constraintBaseline_toBaselineOf="@+id/spinnerBloodGroup"
+        app:layout_constraintEnd_toEndOf="@+id/tvAmount" />
+
+    <TextView
+        android:id="@+id/tvBloodDon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvName"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/tv_req_blood"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

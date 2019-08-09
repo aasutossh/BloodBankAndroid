@@ -271,6 +271,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public void onClick(View view) {
                         Log.i("LatLng is", latLng.toString());
+                        Intent intent = new Intent();
+                        intent.putExtra("LatLng", latLng.toString());
+                        setResult(RESULT_OK, intent);
+                        finish();
                     }
                 });
             }
