@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class RequestBloodActivity extends AppCompatActivity implements View.OnClickListener{
     private Spinner spinnerBloodGroup;
@@ -32,7 +33,8 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
     private DatabaseReference databaseReference;
     private int mYear, mMonth, mDay, mHour, mMinute;
     String time, date;
-    private String latlng;
+    private double lat;
+    private double lon;
 
 
 
@@ -70,7 +72,6 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         postMyRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                TODO: post the data to db
                 storeToDatabase();
 
             }
@@ -135,13 +136,13 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
             String id = databaseReference.push().getKey();
 
 //            Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, Date date, int quantity)
-            Request request = new Request(nameText, bloodGroup, Integer.parseInt(amountText), phoneText, time, date, latlng);
+            Request request = new Request(nameText, bloodGroup, Integer.parseInt(amountText), phoneText, time, date, lat, lon);
             assert id != null;
             Toast.makeText(this, nameText + bloodGroup+phoneText+amountText, Toast.LENGTH_SHORT).show();
             databaseReference.child(id).setValue(request);
             Toast.makeText(this, "Request posted to database", Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(this, latlng, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, lat +" "+ lon, Toast.LENGTH_SHORT).show();
 
         } else if (nameText.isEmpty()){
             name.setError("Name is required.");
@@ -163,7 +164,11 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
-                latlng = data.getStringExtra("LatLng");
+                Bundle coordinates = data.getExtras();
+                assert coordinates != null;
+                lat = coordinates.getDouble("Lat");
+                lon = coordinates.getDouble("Lon");
+
             }
         }
     }

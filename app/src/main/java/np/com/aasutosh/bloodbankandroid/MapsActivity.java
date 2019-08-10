@@ -72,8 +72,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private View mapView;
     private Marker marker;
     private Button btnChooseMyLocation;
-//    private Button btnFind;
-//    private RippleBackground rippleBg;
 
     private final float DEFAULT_ZOOM = 15;
 
@@ -84,10 +82,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         materialSearchBar = findViewById(R.id.searchBar);
         btnChooseMyLocation = findViewById(R.id.btnChooseMyLocation);
-
-
-//        btnFind = findViewById(R.id.btn_find);
-//        rippleBg = findViewById(R.id.ripple_bg);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         assert mapFragment != null;
@@ -116,6 +110,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     //opening or closing a navigation drawer
                 } else if (buttonCode == MaterialSearchBar.BUTTON_BACK) {
                     materialSearchBar.disableSearch();
+                    materialSearchBar.clearSuggestions();
                 }
             }
         });
@@ -216,22 +211,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             }
         });
-////        btnFind.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                LatLng currentMarkerLocation = mMap.getCameraPosition().target;
-//                rippleBg.startRippleAnimation();
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        rippleBg.stopRippleAnimation();
-//                        startActivity(new Intent(MapsActivity.this, MainActivity.class));
-//                        finish();
-//                    }
-//                }, 3000);
-//
-//            }
-//        });
     }
 
     @SuppressLint("MissingPermission")
@@ -272,7 +251,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onClick(View view) {
                         Log.i("LatLng is", latLng.toString());
                         Intent intent = new Intent();
-                        intent.putExtra("LatLng", latLng.toString());
+                        Bundle coordinates = new Bundle();
+                        coordinates.putDouble("Lat", latLng.latitude);
+                        coordinates.putDouble("Lon", latLng.longitude);
+                        intent.putExtras(coordinates);
                         setResult(RESULT_OK, intent);
                         finish();
                     }
