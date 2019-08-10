@@ -19,6 +19,12 @@
     <string name="et_hint_full_name">Full Name</string>
     <string name="et_hint_phone_number">Phone Number</string>
 
+    <string name="tv_amount">Amount</string>
+
+    <string name="et_amount">Pints of blood needed</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps_api">AIzaSyBevxdmgwJ0QgDItkUoaAdpBc7PW5tYpUQ</string>
+
     <string-array name="spinner_blood_group">
         <item>A +ve</item>
         <item>A -ve</item>
@@ -29,12 +35,6 @@
         <item>O +ve</item>
         <item>O -ve</item>
     </string-array>
-
-    <string name="tv_amount">Amount</string>
-    <string name="et_amount">Pints of blood needed</string>
-    <string name="title_activity_maps">MapsActivity</string>
-
-    <string name="google_maps_api">AIzaSyBevxdmgwJ0QgDItkUoaAdpBc7PW5tYpUQ</string>
 
 
 </resources>

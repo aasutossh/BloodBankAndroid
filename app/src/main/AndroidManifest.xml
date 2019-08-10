@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="np.com.aasutosh.bloodbankandroid">
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,16 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_api" />
-
+        <activity android:name=".DonateFeedActivity"></activity>
+        <activity android:name=".RequestFeedActivity" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".FeedActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FeedActivity" />
         <activity android:name=".RequestBloodActivity" />
         <activity android:name=".DonateBloodActivity" />
         <activity android:name=".MainActivity" />
@@ -33,6 +29,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".PermissionsActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_api" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
