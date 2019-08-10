@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/btnRequestBlood"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/btn_request_blood"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/btnDonateBlood"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/btn_donate_blood"
@@ -30,7 +30,7 @@
 
     <Button
         android:id="@+id/btnShowMap"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
         android:text="@string/btn_show_map"
@@ -41,7 +41,7 @@
 
     <Button
         android:id="@+id/btnSignOut"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="139dp"
         android:text="@string/btn_sign_out"
@@ -52,7 +52,7 @@
 
     <Button
         android:id="@+id/btnShowList"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
         android:text="Show List"
@@ -63,8 +63,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="196dp"
-        android:layout_height="0dp"
+        android:layout_width="242dp"
+        android:layout_height="195dp"
         android:layout_marginTop="33dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"

@@ -1,4 +1,4 @@
-package np.com.aasutosh.bloodbankandroid;
+package pn.com.aasutosh.bloodbankandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
-import java.util.Objects;
 
 public class DonateBloodActivity extends AppCompatActivity implements View.OnClickListener{
 

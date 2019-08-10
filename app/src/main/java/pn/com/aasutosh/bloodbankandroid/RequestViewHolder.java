@@ -1,4 +1,4 @@
-package np.com.aasutosh.bloodbankandroid;
+package pn.com.aasutosh.bloodbankandroid;
 
 import android.view.View;
 import android.widget.TextView;

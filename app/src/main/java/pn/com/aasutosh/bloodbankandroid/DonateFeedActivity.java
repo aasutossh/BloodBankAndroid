@@ -1,4 +1,4 @@
-package np.com.aasutosh.bloodbankandroid;
+package pn.com.aasutosh.bloodbankandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
