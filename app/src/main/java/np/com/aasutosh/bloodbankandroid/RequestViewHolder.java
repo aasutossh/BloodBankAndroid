@@ -24,10 +24,6 @@ public class RequestViewHolder extends RecyclerView.ViewHolder {
         TextView tvBloodGroup = myView.findViewById(R.id.tvRequestListBloodGroup);
         tvBloodGroup.setText(bloodGroup);
     }
-    public void setTypeOfRequest(String typeOfRequest) {
-        TextView tvTypeOfRequest = myView.findViewById(R.id.tvRequestListName);
-        tvTypeOfRequest.setText(typeOfRequest);
-    }
     public void setPhoneNum(String phoneNum) {
         TextView tvPhoneNum = myView.findViewById(R.id.tvRequestListPhoneNum);
         tvPhoneNum.setText(phoneNum);

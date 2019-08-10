@@ -1,45 +1,40 @@
 package np.com.aasutosh.bloodbankandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-public class FeedActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private DatabaseReference databaseRequests, databaseDonates;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
+
+public class FeedActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button btnRequestFeed, btnDonateFeed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
+        setContentView(R.layout.feed);
 
-        databaseRequests = FirebaseDatabase.getInstance().getReference().child("requests");
-        databaseRequests.keepSynced(true);
-        databaseDonates = FirebaseDatabase.getInstance().getReference().child("donates");
-        databaseDonates.keepSynced(true);
+        btnRequestFeed = findViewById(R.id.btnRequestFeed);
+        btnDonateFeed = findViewById(R.id.btnDonateFeed);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        btnRequestFeed.setOnClickListener(this);
+        btnDonateFeed.setOnClickListener(this);
+
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseRecyclerAdapter<Request, RequestViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Request, RequestViewHolder>
-                (Request.class, R.layout.request_list, RequestViewHolder.class, databaseRequests) {
-            @Override
-            protected void populateViewHolder(RequestViewHolder requestViewHolder, Request request, int i) {
-                requestViewHolder.setName(request.getName());
-                requestViewHolder.setQuantity(request.getQuantity());
-                requestViewHolder.setBloodGroup(request.getBloodGroup());
-                requestViewHolder.setPhoneNum(request.getPhoneNum());
-            }
-        };
-        recyclerView.setAdapter(firebaseRecyclerAdapter);
+    public void onClick(View view) {
+        if(view == btnRequestFeed) {
+            startActivity(new Intent(getApplicationContext(), RequestFeedActivity.class));
+        }
+        else if(view == btnDonateFeed) {
+            startActivity(new Intent(getApplicationContext(), DonateFeedActivity.class));
+        }
+        else {
+            Log.i("Info", "Unknown button pressed");
+        }
     }
 }
 
