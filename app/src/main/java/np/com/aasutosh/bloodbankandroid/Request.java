@@ -8,44 +8,50 @@ public class Request {
     //    Use maps format "Latitude, Longitude"
     String time;
     String date;
-    String location;
-
-    public Request(String name, String bloodGroup, int quantity, String phoneNum, String time, String date, String location) {
-        this.name = name;
-        this.phoneNum = phoneNum;
-        this.bloodGroup = bloodGroup;
-        this.location = location;
-        this.date = date;
-        this.time = time;
-        this.quantity = quantity;
-    }
+    double lat;
+    double lon;
 
     public String getName() {
         return name;
-    }
-
-    public String getPhoneNum() {
-        return phoneNum;
     }
 
     public String getBloodGroup() {
         return bloodGroup;
     }
 
-    public String getLocation() {
-        return location;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public String getDate() {
-        return date;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
     public String getTime() {
         return time;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getDate() {
+        return date;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public Request(String name, String bloodGroup, int quantity, String phoneNum, String time, String date, double lat, double lon) {
+        this.name = name;
+        this.bloodGroup = bloodGroup;
+        this.quantity = quantity;
+        this.phoneNum = phoneNum;
+        this.time = time;
+        this.date = date;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     public Request() { }
