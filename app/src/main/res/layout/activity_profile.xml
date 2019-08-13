@@ -10,14 +10,14 @@
     <Button
         android:id="@+id/btnChooseDate"
         android:layout_width="0dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="12dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="5dp"
         android:text="Choose Date"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
 
     <Button
         android:id="@+id/btnCreateProfile"
@@ -34,47 +34,58 @@
         android:id="@+id/etFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/et_hint_full_name"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvFullName"
+        app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
+        app:layout_constraintTop_toTopOf="@+id/tvFullName" />
 
     <EditText
         android:id="@+id/etPhoneNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="@string/et_hint_phone_number"
         android:inputType="phone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/spinnerDistrict"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        app:layout_constraintBottom_toBottomOf="@+id/spinnerDistrict"
+        app:layout_constraintStart_toStartOf="@+id/spinnerDistrict" />
+
+    <Spinner
+        android:id="@+id/spinnerDistrict"
+        android:layout_width="215dp"
+        android:layout_height="53dp"
+        android:entries="@array/spinner_districts"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/spinnerBloodGroup"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <Spinner
         android:id="@+id/spinnerBloodGroup"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="53dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        android:layout_width="209dp"
+        android:layout_height="54dp"
+        android:entries="@array/spinner_blood_group"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBloodGroup"
+        app:layout_constraintStart_toStartOf="@+id/btnChooseDate"
+        app:layout_constraintTop_toTopOf="@+id/tvBloodGroup" />
 
     <TextView
         android:id="@+id/tvProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="118dp"
         android:text="Enter Your Details"
-        app:layout_constraintEnd_toEndOf="@+id/etFullName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,43 +93,50 @@
         android:id="@+id/tvFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="35dp"
         android:text="Full Name"
-        app:layout_constraintBottom_toBottomOf="@+id/etPhoneNum"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvProfile" />
+        app:layout_constraintBottom_toTopOf="@+id/etPhoneNum"
+        app:layout_constraintEnd_toEndOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginBottom="212dp"
         android:text="@string/tv_phone_num"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etFullName" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvBloodGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="34dp"
         android:text="@string/tv_blood_group"
-        app:layout_constraintBottom_toBottomOf="@+id/spinnerBloodGroup"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/btnChooseDate"
+        app:layout_constraintEnd_toEndOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="196dp"
         android:text="Last Donated"
-        app:layout_constraintBottom_toBottomOf="@+id/btnChooseDate"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnChooseDate"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:text="District"
+        app:layout_constraintEnd_toEndOf="@+id/tvBloodGroup"
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneNum" />
 </androidx.constraintlayout.widget.ConstraintLayout>

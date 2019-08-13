@@ -31,7 +31,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
     private EditText etAmount;
     private DatabaseReference databaseReference;
     private int mYear, mMonth, mDay, mHour, mMinute;
-    String time, date;
+    private String time, date;
     private double lat;
     private double lon;
 
