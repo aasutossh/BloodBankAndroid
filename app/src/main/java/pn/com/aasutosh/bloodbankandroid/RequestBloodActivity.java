@@ -14,10 +14,13 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class RequestBloodActivity extends AppCompatActivity implements View.OnClickListener{
     private Spinner spinnerBloodGroup;
@@ -34,6 +37,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
     private String time, date;
     private double lat;
     private double lon;
+    String userId;
 
 
 
@@ -54,6 +58,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         postMyRequest = findViewById(R.id.btnPostRequest);
         txtTime = findViewById(R.id.etChooseTime);
         txtDate = findViewById(R.id.etChooseDate);
+        userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
 
         chooseTime.setOnClickListener(this);
@@ -135,26 +140,33 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
             String id = databaseReference.push().getKey();
 
 //            Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, Date date, int quantity)
-            Request request = new Request(nameText, bloodGroup, Integer.parseInt(amountText), phoneText, time, date, lat, lon);
+            Request request = new Request(nameText, bloodGroup, Integer.parseInt(amountText), phoneText, time, date, lat, lon, userId);
             assert id != null;
             Toast.makeText(this, nameText + bloodGroup+phoneText+amountText, Toast.LENGTH_SHORT).show();
-            databaseReference.child(id).setValue(request);
-            Toast.makeText(this, "Request posted to database", Toast.LENGTH_SHORT).show();
+            databaseReference.child(id).setValue(request).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(RequestBloodActivity.this, "Request posted to database", Toast.LENGTH_SHORT).show();
+                }
+            });
+
 
             Toast.makeText(this, lat +" "+ lon, Toast.LENGTH_SHORT).show();
 
-        } else if (nameText.isEmpty()){
+        }
+        if (nameText.isEmpty()){
             name.setError("Name is required.");
-        } else if (phoneText.isEmpty()){
+        }
+        if (phoneText.isEmpty()){
         phoneNum.setError("Phone Number is required");
         }
-        else if(phoneText.length() == 10){
+        if(phoneText.length() == 10){
             phoneNum.setError("Please enter 10 digit phone number.");
         }
-        else if(!phoneText.startsWith("9")){
+        if(!phoneText.startsWith("9")){
             phoneNum.setError("Please enter valid phone number");
         }
-        else if(amountText.isEmpty()) {
+        if(amountText.isEmpty()) {
             etAmount.setError("Amounts can't be empty.");
         }
     }

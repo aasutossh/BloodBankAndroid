@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnDonateBlood;
     Button btnShowMap;
     Button btnShowList;
+    Button btnEditProfile;
 //    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnRequestBlood = findViewById(R.id.btnRequestBlood);
         btnShowMap = findViewById(R.id.btnShowMap);
         btnShowList = findViewById(R.id.btnShowList);
+        btnEditProfile = findViewById(R.id.btnEditProfile);
 
 
         btnSighOut.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                                 btnSighOut.setEnabled(false);
 //                                showSignInOptions();
                                 startActivity(new Intent(getApplicationContext(), FireBaseUIActivity.class));
+                                finish();
                             }
                         }
                         )
@@ -76,12 +79,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        btnShowMap.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, ShowMapActivity.class));
-//            }
-//        });
         btnShowList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ShowAllMapActivity.class));
             }
         });
-
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
+            }
+        });
     }
 }

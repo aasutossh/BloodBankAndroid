@@ -10,6 +10,11 @@ public class Request {
     String date;
     double lat;
     double lon;
+    String userId;
+
+    public String getUserId() {
+        return userId;
+    }
 
     public String getName() {
         return name;
@@ -43,7 +48,7 @@ public class Request {
         return lon;
     }
 
-    public Request(String name, String bloodGroup, int quantity, String phoneNum, String time, String date, double lat, double lon) {
+    public Request(String name, String bloodGroup, int quantity, String phoneNum, String time, String date, double lat, double lon, String userId) {
         this.name = name;
         this.bloodGroup = bloodGroup;
         this.quantity = quantity;
@@ -52,6 +57,7 @@ public class Request {
         this.date = date;
         this.lat = lat;
         this.lon = lon;
+        this.userId = userId;
     }
 
     public Request() { }
