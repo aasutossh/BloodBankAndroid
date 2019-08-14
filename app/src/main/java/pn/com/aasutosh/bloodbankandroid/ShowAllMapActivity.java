@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -207,6 +210,16 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+        map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Uri phoneNum = Uri.parse("tel:" + marker.getSnippet());
+                Log.i("phone", marker.getSnippet());
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, phoneNum);
+                startActivity(callIntent);
             }
         });
 
