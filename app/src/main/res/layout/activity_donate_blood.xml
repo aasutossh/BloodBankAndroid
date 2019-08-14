@@ -10,42 +10,21 @@
 
     <Button
         android:id="@+id/btnLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
 
         android:layout_alignEnd="@+id/tvLocation"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginEnd="11dp"
         android:text="@string/btn_location"
         android:textAllCaps="false"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/btnChooseDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/etChooseDate"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="12dp"
-        android:text="Choose Date"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
-        app:layout_constraintStart_toStartOf="@+id/btnLocation" />
-
-    <Button
-        android:id="@+id/btnChooseTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/etChooseTime"
-        android:layout_marginTop="11dp"
-        android:text="Choose Time"
-        android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="@+id/btnChooseDate"
-        app:layout_constraintTop_toBottomOf="@+id/etPhoneNum" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvLocation"
+        app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
+        app:layout_constraintTop_toTopOf="@+id/tvLocation" />
 
     <Button
         android:id="@+id/btnPostRequest"
@@ -53,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/btn_post_my_request"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,101 +41,61 @@
 
     <EditText
         android:id="@+id/etName"
-        android:layout_width="154dp"
+        android:layout_width="0dp"
         android:layout_height="39dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="99dp"
-        android:layout_marginBottom="101dp"
+        android:layout_marginEnd="12dp"
         android:layout_toEndOf="@id/tvName"
         android:ems="10"
         android:hint="@string/et_hint_full_name"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvAmount"
-        app:layout_constraintStart_toStartOf="@+id/spinnerBloodGroup"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etAmount"
-        android:layout_width="63dp"
-        android:layout_height="39dp"
-        android:layout_alignEnd="@id/tvAmount"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:hint="@string/et_amount"
-        android:inputType="number"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/etPhoneNum"
-        app:layout_constraintStart_toStartOf="@+id/etPhoneNum"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerBloodGroup" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvName"
+        app:layout_constraintTop_toTopOf="@+id/tvName" />
 
     <EditText
         android:id="@+id/etPhoneNum"
-        android:layout_width="148dp"
-        android:layout_height="42dp"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
         android:layout_alignEnd="@id/tvPhoneNum"
-        android:layout_marginTop="84dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="@string/tv_phone_num"
         android:inputType="textPersonName"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnChooseDate"
-        app:layout_constraintStart_toStartOf="@+id/btnChooseTime"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-
-    <EditText
-        android:id="@+id/etChooseTime"
-        android:layout_width="144dp"
-        android:layout_height="39dp"
-        android:layout_alignBottom="@id/tvLocation"
-        android:layout_marginTop="77dp"
-        android:layout_marginBottom="77dp"
-        android:ems="10"
-        android:hint="Choose Time"
-        android:inputType="time"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/etChooseDate"
-        app:layout_constraintEnd_toEndOf="@+id/etChooseDate"
-        app:layout_constraintTop_toBottomOf="@+id/etAmount" />
-
-    <EditText
-        android:id="@+id/etChooseDate"
-        android:layout_width="142dp"
-        android:layout_height="0dp"
-        android:layout_alignBottom="@id/etChooseTime"
-        android:layout_marginTop="9dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:hint="Choose Date"
-        android:inputType="date"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLocation"
-        app:layout_constraintEnd_toEndOf="@+id/tvLocation"
-        app:layout_constraintTop_toTopOf="@+id/btnChooseDate" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvPhoneNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvPhoneNum"
+        app:layout_constraintTop_toTopOf="@+id/tvPhoneNum" />
 
     <Spinner
         android:id="@+id/spinnerBloodGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
         android:layout_alignEnd="@id/tvBloodDon"
-        android:layout_marginTop="157dp"
+        android:layout_marginEnd="11dp"
         android:entries="@array/spinner_blood_group"
-        app:layout_constraintStart_toStartOf="@+id/etAmount"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/etName"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
 
     <TextView
         android:id="@+id/tvLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="66dp"
         android:text="@string/tv_location"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/btnLocation"
-        app:layout_constraintTop_toBottomOf="@+id/etChooseDate" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhoneNum" />
 
     <TextView
         android:id="@+id/tvName"
@@ -164,39 +103,41 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="31dp"
         android:text="@string/tv_name"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/tvAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/tvBloodDon"
-        android:layout_marginBottom="36dp"
-        android:text="@string/tv_amount"
-        app:layout_constraintBottom_toTopOf="@+id/tvPhoneNum"
-        app:layout_constraintEnd_toEndOf="@+id/tvPhoneNum" />
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/etName"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvPhoneNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="66dp"
         android:text="@string/tv_phone_num"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/etChooseTime"
-        app:layout_constraintEnd_toEndOf="@+id/etChooseTime" />
+        app:layout_constraintEnd_toEndOf="@+id/tvLocation"
+        app:layout_constraintEnd_toStartOf="@+id/etPhoneNum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="39dp"
         android:text="@string/tv_blood_group"
-        app:layout_constraintBaseline_toBaselineOf="@+id/spinnerBloodGroup"
-        app:layout_constraintEnd_toEndOf="@+id/tvAmount" />
+        app:layout_constraintBottom_toTopOf="@+id/tvPhoneNum"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerBloodGroup"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvBloodDon"
