@@ -21,7 +21,7 @@ public class Profile {
         this.lastDonated = lastDonated;
     }
 
-    private String name, district, phoneNum, bloodGroup, lastDonated, userId;
+    private String name, district, phoneNum, bloodGroup, lastDonated, district_bloodGroup, userId;
 
     public String getName() {
         return name;
@@ -43,13 +43,22 @@ public class Profile {
         return lastDonated;
     }
 
-    public Profile(String name, String phoneNum, String bloodGroup, String district, String lastDonated, String userId) {
+    public void setDistrict_bloodGroup(String district_bloodGroup) {
+        this.district_bloodGroup = district_bloodGroup;
+    }
+
+    public String getDistrict_bloodGroup() {
+        return district_bloodGroup;
+    }
+
+    public Profile(String name, String phoneNum, String bloodGroup, String district, String lastDonated, String district_bloodGroup, String userId) {
         this.name = name;
         this.district = district;
         this.phoneNum = phoneNum;
         this.bloodGroup = bloodGroup;
         this.lastDonated = lastDonated;
         this.userId = userId;
+        this.district_bloodGroup = district_bloodGroup;
     }
     public Profile() {}
 

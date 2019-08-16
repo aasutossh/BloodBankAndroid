@@ -160,7 +160,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         if (phoneText.isEmpty()){
         phoneNum.setError("Phone Number is required");
         }
-        if(phoneText.length() == 10){
+        if(phoneText.length() != 10){
             phoneNum.setError("Please enter 10 digit phone number.");
         }
         if(!phoneText.startsWith("9")){

@@ -7,9 +7,19 @@
     tools:context=".RequestFeedActivity"
    >
 
-    <androidx.recyclerview.widget.RecyclerView
+    <Spinner
+        android:id="@+id/spinnerSelectBloodGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerViewRequest"/>
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:entries="@array/searchBloodGroup"
+        android:gravity="center"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRequest"
+        android:layout_width="match_parent"
+        android:layout_height="589dp"
+        android:layout_alignTop="@id/spinnerSelectBloodGroup"
+        android:layout_marginTop="51dp" />
 
 </RelativeLayout>

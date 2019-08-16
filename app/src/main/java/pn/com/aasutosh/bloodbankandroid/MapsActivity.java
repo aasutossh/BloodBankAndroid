@@ -67,6 +67,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         searchView = findViewById(R.id.search);
         btnChooseMyLocation = findViewById(R.id.btnChooseMyLocation);
+        btnChooseMyLocation.setEnabled(false);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         assert mapFragment != null;
@@ -94,8 +95,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     assert addressList != null;
                     Address address = addressList.get(0);
+                    assert address != null;
                     LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(location));
+//                    mMap.addMarker(new MarkerOptions().position(latLng).title(location));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
 //                }
@@ -142,6 +144,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     marker.setPosition(latLng);
 
                 }
+                btnChooseMyLocation.setEnabled(true);
                 btnChooseMyLocation.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

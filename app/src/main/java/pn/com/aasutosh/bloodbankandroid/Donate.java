@@ -36,4 +36,5 @@ public class Donate {
         this.lng = lng;
         this.userId = userId;
     }
+    public Donate() {}
 }

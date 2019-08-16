@@ -111,7 +111,7 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
                     assert addressList != null;
                     Address address = addressList.get(0);
                     LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    map.addMarker(new MarkerOptions().position(latLng).title(location));
+//                    map.addMarker(new MarkerOptions().position(latLng).title(location));
                     map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
 //                }
@@ -199,10 +199,10 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot s: dataSnapshot.getChildren()) {
-                    Request request = s.getValue(Request.class);
-                    assert request != null;
-                    LatLng lng = new LatLng(request.getLat(), request.getLon());
-                    map.addMarker(new MarkerOptions().position(lng).title(request.getName() +" "+ request.getBloodGroup()).snippet(request.getPhoneNum()))
+                    Donate donate = s.getValue(Donate.class);
+                    assert donate != null;
+                    LatLng lng = new LatLng(donate.getLat(), donate.getLng());
+                    map.addMarker(new MarkerOptions().position(lng).title(donate.getName() +" "+ donate.getBloodGroup()).snippet(donate.getPhoneNum()))
                             .setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
                 }
             }
