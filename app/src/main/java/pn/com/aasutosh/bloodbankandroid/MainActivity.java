@@ -16,28 +16,25 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private static final int REQUEST_CODE = 2525;
-//    List<AuthUI.IdpConfig> providers;
     Button btnSighOut;
     Button btnRequestBlood;
     Button btnDonateBlood;
     Button btnShowMap;
     Button btnShowList;
     Button btnEditProfile;
-//    private FirebaseAuth mAuth;
+    Button btnShowDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize Firebase Auth
-//        mAuth = FirebaseAuth.getInstance();
 //
         btnSighOut = findViewById(R.id.btnSignOut);
         btnDonateBlood = findViewById(R.id.btnDonateBlood);
         btnRequestBlood = findViewById(R.id.btnRequestBlood);
         btnShowMap = findViewById(R.id.btnShowMap);
         btnShowList = findViewById(R.id.btnShowList);
+        btnShowDatabase = findViewById(R.id.btnShowDatabase);
         btnEditProfile = findViewById(R.id.btnEditProfile);
 
 
@@ -96,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
+            }
+        });
+        btnShowDatabase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ShowDatabaseActivity.class));
             }
         });
     }

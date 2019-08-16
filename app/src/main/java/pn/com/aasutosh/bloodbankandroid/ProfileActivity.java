@@ -136,7 +136,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (!name.isEmpty() && phoneNum.length() == 10) {
 //        on successful validation
 //            store to database
-            Profile profile = new Profile(name, phoneNum, bloodGroup, district, lastDonatedDate, userId);
+            Profile profile = new Profile(name, phoneNum, bloodGroup, district, lastDonatedDate, district+"_"+bloodGroup, userId);
             databaseReference.child(userId).setValue(profile).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {

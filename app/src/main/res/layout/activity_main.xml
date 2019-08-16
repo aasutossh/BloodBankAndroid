@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="14dp"
         android:text="@string/btn_request_blood"
         app:layout_constraintBottom_toTopOf="@+id/btnDonateBlood"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/btn_donate_blood"
         app:layout_constraintBottom_toTopOf="@+id/btnShowMap"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="13dp"
         android:text="@string/btn_show_map"
         app:layout_constraintBottom_toTopOf="@+id/btnShowList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,12 +51,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/btn_sign_out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEditProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/btnShowDatabase" />
 
     <Button
         android:id="@+id/btnEditProfile"
@@ -64,12 +64,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="13dp"
         android:text="Edit Profile"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowDatabase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnShowList" />
+
+    <Button
+        android:id="@+id/btnShowDatabase"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="40dp"
+        android:text="Show Database"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEditProfile" />
 
     <Button
         android:id="@+id/btnShowList"
@@ -77,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="12dp"
         android:text="Show List of Requests"
         app:layout_constraintBottom_toTopOf="@+id/btnEditProfile"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +99,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="242dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="44dp"
         android:gravity="center"
         android:text="@string/tv_main_action"
         android:textSize="18sp"

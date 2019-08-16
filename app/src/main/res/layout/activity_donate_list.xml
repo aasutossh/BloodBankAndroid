@@ -18,39 +18,39 @@
         android:paddingEnd="20dp">
 
         <TextView
-            android:id="@+id/tvRequestListName"
+            android:id="@+id/tvTopic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Blood Donate"
+            android:textColor="#FFF"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDonateListName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Name"
             android:textColor="#fff" />
 
-        <TextView
-            android:id="@+id/tvRequestListQuantity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quantity"
-            android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/tvRequestListBloodGroup"
+            android:id="@+id/tvDonateListBloodGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="BloodGroup"
             android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/tvRequestListTypeOfRequest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TypeOfRequest"
-            android:textColor="#fff" />
-
-        <TextView
-            android:id="@+id/tvRequestListPhoneNum"
+            android:id="@+id/tvDonateListPhoneNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phoneum"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:gravity="center" />
+
+
 
 
     </LinearLayout>

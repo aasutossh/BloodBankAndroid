@@ -6,10 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".DonateFeedActivity"
     >
+    <Spinner
+        android:id="@+id/spinnerSelectBloodGroup"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:entries="@array/searchBloodGroup"
+        android:gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDonate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerViewDonate"/>
+        android:layout_height="598dp"
+        android:layout_alignTop="@id/spinnerSelectBloodGroup"
+        android:layout_marginTop="42dp" />
 
 </RelativeLayout>
