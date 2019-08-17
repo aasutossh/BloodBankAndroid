@@ -171,6 +171,7 @@ public class RequestFeedActivity extends AppCompatActivity implements AdapterVie
     }
 
     private String getAddress(double latitude, double longitude) {
+        Log.i("Latlng", latitude + " " + longitude);
         Geocoder geocoder;
         List<Address> addresses = null;
         geocoder = new Geocoder(this, Locale.getDefault());
@@ -181,7 +182,8 @@ public class RequestFeedActivity extends AppCompatActivity implements AdapterVie
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (addresses != null) {
+        assert addresses != null;
+        if (addresses.size() != 0) {
             if (addresses.get(0).getLocality() != null)
                 return "in " + addresses.get(0).getLocality();
 

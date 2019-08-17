@@ -54,6 +54,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         chooseTime = findViewById(R.id.btnChooseTime);
         chooseDate = findViewById(R.id.btnChooseDate);
         postMyRequest = findViewById(R.id.btnPostRequest);
+        postMyRequest.setEnabled(false);
         txtTime = findViewById(R.id.etChooseTime);
         txtDate = findViewById(R.id.etChooseDate);
         userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
@@ -176,6 +177,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
                 assert coordinates != null;
                 lat = coordinates.getDouble("Lat");
                 lon = coordinates.getDouble("Lon");
+                postMyRequest.setEnabled(true);
 
             }
         }

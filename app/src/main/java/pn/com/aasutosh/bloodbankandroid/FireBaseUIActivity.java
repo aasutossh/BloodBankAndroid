@@ -113,10 +113,13 @@ public class FireBaseUIActivity extends AppCompatActivity {
                 Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
                 btnSighOut.setEnabled(true);
             } else {
-                assert response != null;
-                Toast.makeText(this, Objects.requireNonNull(response.getError()).getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, Objects.requireNonNull(Objects.requireNonNull(response).getError()).getMessage(), Toast.LENGTH_LONG).show();
             }
             finish();
         }
+    }
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }

@@ -1,6 +1,8 @@
 package pn.com.aasutosh.bloodbankandroid;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,17 +36,6 @@ public class ShowDatabaseActivity extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_show_database);
         spinnerDistrict = findViewById(R.id.spinnerSelectDistrict);
         spinnerBloodGroup = findViewById(R.id.spinnerSelectBloodGroup);
-//        tvPhone = findViewById(R.id.tvProfilePhoneNum);
-//
-//        tvPhone.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Uri number = Uri.parse("tel:" + tvPhone.getText().toString());
-//                Intent dialNum = new Intent(Intent.ACTION_DIAL, number);
-//                startActivity(dialNum);
-//            }
-//        });
-
 
         txtDistrict = spinnerDistrict.getSelectedItem().toString();
         txtBloodGroup = spinnerBloodGroup.getSelectedItem().toString();
@@ -87,6 +78,20 @@ public class ShowDatabaseActivity extends AppCompatActivity implements AdapterVi
 
                 }
 
+                @Override
+                public void onBindViewHolder(ProfileViewHolder viewHolder, final int position) {
+                    super.onBindViewHolder(viewHolder, position);
+                    viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Profile profile = getItem(position);
+                            Uri phoneNum = Uri.parse("tel:" + profile.getPhoneNum());
+                            Intent callIntent = new Intent(Intent.ACTION_DIAL, phoneNum);
+                            startActivity(callIntent);
+                        }
+                    });
+                }
+
             };
             recyclerView.setAdapter(firebaseRecyclerAdapter);
 
@@ -103,6 +108,20 @@ public class ShowDatabaseActivity extends AppCompatActivity implements AdapterVi
                     profileViewHolder.setDistrict(profile.getDistrict());
                     profileViewHolder.setStatus(checkStatus(profile));
                 }
+
+                @Override
+                public void onBindViewHolder(ProfileViewHolder viewHolder, final int position) {
+                    super.onBindViewHolder(viewHolder, position);
+                    viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Profile profile = getItem(position);
+                            Uri phoneNum = Uri.parse("tel:" + profile.getPhoneNum());
+                            Intent callIntent = new Intent(Intent.ACTION_DIAL, phoneNum);
+                            startActivity(callIntent);
+                        }
+                    });
+                }
             };
             recyclerView.setAdapter(firebaseRecyclerAdapter);
         } else if (txtBloodGroup.equals("All")) {
@@ -118,28 +137,25 @@ public class ShowDatabaseActivity extends AppCompatActivity implements AdapterVi
                     profileViewHolder.setDistrict(profile.getDistrict());
                     profileViewHolder.setStatus(checkStatus(profile));
                 }
+
+                @Override
+                public void onBindViewHolder(ProfileViewHolder viewHolder, final int position) {
+                    super.onBindViewHolder(viewHolder, position);
+                    viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Profile profile = getItem(position);
+                            Uri phoneNum = Uri.parse("tel:" + profile.getPhoneNum());
+                            Intent callIntent = new Intent(Intent.ACTION_DIAL, phoneNum);
+                            startActivity(callIntent);
+                        }
+                    });
+                }
             };
             recyclerView.setAdapter(firebaseRecyclerAdapter);
         } else {
             Query query = databaseProfile.orderByChild("district_bloodGroup").equalTo(txtDistrict + "_" + txtBloodGroup);
-//            query."bloodGroup").equalTo(txtBloodGroup);
 
-
-//            query.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    if(!dataSnapshot.exists()){
-//                        Toast.makeText(ShowDatabaseActivity.this, "No user found in " + txtDistrict + " having " + txtBloodGroup, Toast.LENGTH_SHORT).show();
-//                        spinnerBloodGroup.setSelection(1);
-//                        spinnerDistrict.setSelection(1);
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                }
-//            });
             FirebaseRecyclerAdapter<Profile, ProfileViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Profile, ProfileViewHolder>(
                     Profile.class, R.layout.activity_show_database_list, ProfileViewHolder.class, query
             ) {
@@ -150,6 +166,20 @@ public class ShowDatabaseActivity extends AppCompatActivity implements AdapterVi
                     profileViewHolder.setPhoneNumber(profile.getPhoneNum());
                     profileViewHolder.setDistrict(profile.getDistrict());
                     profileViewHolder.setStatus(checkStatus(profile));
+                }
+
+                @Override
+                public void onBindViewHolder(ProfileViewHolder viewHolder, final int position) {
+                    super.onBindViewHolder(viewHolder, position);
+                    viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Profile profile = getItem(position);
+                            Uri phoneNum = Uri.parse("tel:" + profile.getPhoneNum());
+                            Intent callIntent = new Intent(Intent.ACTION_DIAL, phoneNum);
+                            startActivity(callIntent);
+                        }
+                    });
                 }
             };
             recyclerView.setAdapter(firebaseRecyclerAdapter);
