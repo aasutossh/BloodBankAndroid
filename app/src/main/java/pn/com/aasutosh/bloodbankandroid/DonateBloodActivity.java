@@ -43,6 +43,7 @@ public class DonateBloodActivity extends AppCompatActivity {
         phoneNum = findViewById(R.id.etPhoneNum);
         location = findViewById(R.id.btnLocation);
         postMyRequest = findViewById(R.id.btnPostRequest);
+        postMyRequest.setEnabled(false);
         user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
         userId = user.getUid();
@@ -130,6 +131,8 @@ public class DonateBloodActivity extends AppCompatActivity {
                 assert coordinates != null;
                 lat = coordinates.getDouble("Lat");
                 lon = coordinates.getDouble("Lon");
+                postMyRequest.setEnabled(true);
+
             }
         }
     }

@@ -198,7 +198,8 @@ public class DonateFeedActivity extends AppCompatActivity implements AdapterView
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (addresses != null) {
+        assert addresses != null;
+        if (addresses.size() != 0) {
 //            return addresses.get(0).getLocality();
             if (addresses.get(0).getLocality() != null)
                 return "in " + addresses.get(0).getLocality();

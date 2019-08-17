@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="pn.com.aasutosh.bloodbankandroid">
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_blood_donation"
@@ -11,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MyFeedActivity"></activity>
+        <activity android:name=".MyFeedActivity"/>
         <activity android:name=".ShowLocationActivity" />
         <activity android:name=".ShowDatabaseActivity" />
         <activity android:name=".EditProfileActivity" />
@@ -40,8 +42,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_api" />
     </application>
-    <uses-permission android:name="android.permission.CALL_PHONE" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
