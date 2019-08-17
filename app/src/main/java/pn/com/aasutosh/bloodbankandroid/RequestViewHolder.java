@@ -1,5 +1,6 @@
 package pn.com.aasutosh.bloodbankandroid;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ public class RequestViewHolder extends RecyclerView.ViewHolder {
     public RequestViewHolder(@NonNull View itemView) {
         super(itemView);
         this.myView = itemView;
+
     }
     public void setName(String name) {
         TextView tvName = myView.findViewById(R.id.tvRequestListName);
@@ -27,5 +29,13 @@ public class RequestViewHolder extends RecyclerView.ViewHolder {
     public void setPhoneNum(String phoneNum) {
         TextView tvPhoneNum = myView.findViewById(R.id.tvRequestListPhoneNum);
         tvPhoneNum.setText(phoneNum);
+    }
+    public void setAddress(String address) {
+        TextView tvAddress = myView.findViewById(R.id.tvRequestListAddress);
+        tvAddress.setText(address);
+    }
+    public void setPostedBy(String nameOfPoster) {
+        TextView tvPostedBy = myView.findViewById(R.id.tvRequestListPostedBy);
+        tvPostedBy.setText(nameOfPoster);
     }
 }

@@ -1,13 +1,13 @@
 package pn.com.aasutosh.bloodbankandroid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnShowList;
     Button btnEditProfile;
     Button btnShowDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 AuthUI.getInstance()
                         .signOut(MainActivity.this)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                btnSighOut.setEnabled(false);
+                                                   @Override
+                                                   public void onComplete(@NonNull Task<Void> task) {
+                                                       btnSighOut.setEnabled(false);
 //                                showSignInOptions();
-                                startActivity(new Intent(getApplicationContext(), FireBaseUIActivity.class));
-                                finish();
-                            }
-                        }
+                                                       startActivity(new Intent(getApplicationContext(), FireBaseUIActivity.class));
+                                                       finish();
+                                                   }
+                                               }
                         )
                         .addOnFailureListener(new OnFailureListener() {
                             @Override

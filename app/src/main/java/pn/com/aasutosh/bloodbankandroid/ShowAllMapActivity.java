@@ -1,8 +1,5 @@
 package pn.com.aasutosh.bloodbankandroid;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -17,6 +14,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -48,13 +48,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.IOException;
 import java.util.List;
 
-public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener{
+public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleMap.OnMarkerClickListener {
 
     private static final float DEFAULT_ZOOM = 15;
-    private DatabaseReference databaseRequests;
-    private DatabaseReference databaseDonates;
-
-    private GoogleMap map;
     SearchView searchView;
     SupportMapFragment mapFragment;
     Marker markerReq;
@@ -63,6 +59,10 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
     View mapView;
     Location mLastKnownLocation;
     FusedLocationProviderClient mFusedLocationProviderClient;
+    private DatabaseReference databaseRequests;
+    private DatabaseReference databaseDonates;
+    private GoogleMap map;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,22 +99,26 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
             @Override
             public boolean onQueryTextSubmit(String s) {
                 String location = searchView.getQuery().toString();
-                List <Address> addressList = null;
+                List<Address> addressList = null;
 //                if (location != null || !location.isEmpty()) {
-                    Geocoder geocoder = new Geocoder(getApplicationContext());
-                    try {
-                        addressList = geocoder.getFromLocationName(location, 1);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                Geocoder geocoder = new Geocoder(getApplicationContext());
+                try {
+                    addressList = geocoder.getFromLocationName(location, 1);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
-                    assert addressList != null;
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                if(addressList.size() != 0) {
+                Address address = addressList.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
 //                    map.addMarker(new MarkerOptions().position(latLng).title(location));
-                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
 //                }
+
+            } else {
+                    Toast.makeText(ShowAllMapActivity.this, "Enter valid address.", Toast.LENGTH_SHORT).show();
+                }
                 return false;
             }
 
@@ -181,11 +185,11 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
         databaseRequests.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot s: dataSnapshot.getChildren()) {
+                for (DataSnapshot s : dataSnapshot.getChildren()) {
                     Request request = s.getValue(Request.class);
                     assert request != null;
                     LatLng lng = new LatLng(request.getLat(), request.getLon());
-                    map.addMarker(new MarkerOptions().position(lng).title(request.getName() +" "+ request.getBloodGroup()).snippet(request.getPhoneNum()))
+                    map.addMarker(new MarkerOptions().position(lng).title(request.getName() + " " + request.getBloodGroup()).snippet(request.getPhoneNum()))
                             .setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
                 }
             }
@@ -198,11 +202,11 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
         databaseDonates.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot s: dataSnapshot.getChildren()) {
+                for (DataSnapshot s : dataSnapshot.getChildren()) {
                     Donate donate = s.getValue(Donate.class);
                     assert donate != null;
                     LatLng lng = new LatLng(donate.getLat(), donate.getLng());
-                    map.addMarker(new MarkerOptions().position(lng).title(donate.getName() +" "+ donate.getBloodGroup()).snippet(donate.getPhoneNum()))
+                    map.addMarker(new MarkerOptions().position(lng).title(donate.getName() + " " + donate.getBloodGroup()).snippet(donate.getPhoneNum()))
                             .setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
                 }
             }
@@ -249,6 +253,7 @@ public class ShowAllMapActivity extends FragmentActivity implements OnMapReadyCa
     public boolean onMarkerClick(Marker marker) {
         return false;
     }
+
     @SuppressLint("MissingPermission")
     private void getDeviceLocation() {
         mFusedLocationProviderClient.getLastLocation()

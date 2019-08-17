@@ -1,12 +1,8 @@
 package pn.com.aasutosh.bloodbankandroid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +35,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private String name, phoneNum, bloodGroup, district, lastDonatedDate, userId;
     private int mYear, mDay, mMonth;
     private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,7 +138,7 @@ public class EditProfileActivity extends AppCompatActivity {
         if (!name.isEmpty() && phoneNum.length() == 10) {
 //        on successful validation
 //            store to database
-            Profile profile = new Profile(name, phoneNum, bloodGroup, district, lastDonatedDate, district+"_"+bloodGroup, userId);
+            Profile profile = new Profile(name, phoneNum, bloodGroup, district, lastDonatedDate, district + "_" + bloodGroup, userId);
             databaseReference.setValue(profile).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
