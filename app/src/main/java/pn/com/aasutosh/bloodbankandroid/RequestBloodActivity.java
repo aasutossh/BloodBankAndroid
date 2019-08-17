@@ -1,7 +1,5 @@
 package pn.com.aasutosh.bloodbankandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -14,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class RequestBloodActivity extends AppCompatActivity implements View.OnClickListener{
+public class RequestBloodActivity extends AppCompatActivity implements View.OnClickListener {
+    String userId;
     private Spinner spinnerBloodGroup;
     private EditText name;
     private EditText phoneNum;
@@ -37,9 +38,6 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
     private String time, date;
     private double lat;
     private double lon;
-    String userId;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +63,10 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         chooseDate.setOnClickListener(this);
 
 
-
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseMyLocationMapActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -82,11 +79,11 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         });
 
 
-
     }
+
     @Override
     public void onClick(View view) {
-        if(view == chooseTime) {
+        if (view == chooseTime) {
 //            get Time
             final Calendar c = Calendar.getInstance();
             mHour = c.get(Calendar.HOUR_OF_DAY);
@@ -120,8 +117,8 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-                        date = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
-                        txtDate.setText(date);
+                            date = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                            txtDate.setText(date);
 
                         }
                     }, mYear, mMonth, mDay);
@@ -135,14 +132,14 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         String phoneText = phoneNum.getText().toString();
         String amountText = etAmount.getText().toString();
 
-        if(!nameText.isEmpty() && phoneText.length() == 10 && phoneText.startsWith("9") && !amountText.isEmpty()){
+        if (!nameText.isEmpty() && phoneText.length() == 10 && phoneText.startsWith("9") && !amountText.isEmpty()) {
 //            TODO: store name to db
             String id = databaseReference.push().getKey();
 
 //            Request(String name, String phoneNum, String bloodGroup, String typeOfRequest, Date date, int quantity)
-            Request request = new Request(nameText, bloodGroup, Integer.parseInt(amountText), phoneText, time, date, lat, lon, userId);
+            Request request = new Request(id, nameText, bloodGroup, Integer.parseInt(amountText), phoneText, time, date, lat, lon, userId);
             assert id != null;
-            Toast.makeText(this, nameText + bloodGroup+phoneText+amountText, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, nameText + bloodGroup + phoneText + amountText, Toast.LENGTH_SHORT).show();
             databaseReference.child(id).setValue(request).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -151,22 +148,22 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
             });
 
 
-            Toast.makeText(this, lat +" "+ lon, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, lat + " " + lon, Toast.LENGTH_SHORT).show();
 
         }
-        if (nameText.isEmpty()){
+        if (nameText.isEmpty()) {
             name.setError("Name is required.");
         }
-        if (phoneText.isEmpty()){
-        phoneNum.setError("Phone Number is required");
+        if (phoneText.isEmpty()) {
+            phoneNum.setError("Phone Number is required");
         }
-        if(phoneText.length() != 10){
+        if (phoneText.length() != 10) {
             phoneNum.setError("Please enter 10 digit phone number.");
         }
-        if(!phoneText.startsWith("9")){
+        if (!phoneText.startsWith("9")) {
             phoneNum.setError("Please enter valid phone number");
         }
-        if(amountText.isEmpty()) {
+        if (amountText.isEmpty()) {
             etAmount.setError("Amounts can't be empty.");
         }
     }
@@ -174,7 +171,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
-            if(resultCode == RESULT_OK) {
+            if (resultCode == RESULT_OK) {
                 Bundle coordinates = data.getExtras();
                 assert coordinates != null;
                 lat = coordinates.getDouble("Lat");

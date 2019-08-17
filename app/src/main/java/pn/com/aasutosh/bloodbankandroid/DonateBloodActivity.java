@@ -1,8 +1,5 @@
 package pn.com.aasutosh.bloodbankandroid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -64,17 +64,18 @@ public class DonateBloodActivity extends AppCompatActivity {
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChooseMyLocationMapActivity.class);
                 startActivityForResult(intent, 2);
             }
         });
     }
-    private void postData () {
+
+    private void postData() {
         String nameTxt = name.getText().toString();
         String bloodGroup = spinnerBloodGroup.getSelectedItem().toString();
         String phone = phoneNum.getText().toString();
         String id = databaseReference.push().getKey();
-        Donate donate = new Donate(nameTxt, phone, bloodGroup, lat, lon, userId);
+        Donate donate = new Donate(id, nameTxt, phone, bloodGroup, lat, lon, userId);
 
         if (!nameTxt.isEmpty() && phone.length() == 10) {
             assert id != null;
@@ -88,7 +89,8 @@ public class DonateBloodActivity extends AppCompatActivity {
         }
 
     }
-    private void getProfileData () {
+
+    private void getProfileData() {
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

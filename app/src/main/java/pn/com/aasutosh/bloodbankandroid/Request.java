@@ -11,6 +11,23 @@ public class Request {
     double lat;
     double lon;
     String userId;
+    String key;
+
+    public Request(String key, String name, String bloodGroup, int quantity, String phoneNum, String time, String date, double lat, double lon, String userId) {
+        this.key = key;
+        this.name = name;
+        this.bloodGroup = bloodGroup;
+        this.quantity = quantity;
+        this.phoneNum = phoneNum;
+        this.time = time;
+        this.date = date;
+        this.lat = lat;
+        this.lon = lon;
+        this.userId = userId;
+    }
+
+    public Request() {
+    }
 
     public String getUserId() {
         return userId;
@@ -47,18 +64,5 @@ public class Request {
     public double getLon() {
         return lon;
     }
-
-    public Request(String name, String bloodGroup, int quantity, String phoneNum, String time, String date, double lat, double lon, String userId) {
-        this.name = name;
-        this.bloodGroup = bloodGroup;
-        this.quantity = quantity;
-        this.phoneNum = phoneNum;
-        this.time = time;
-        this.date = date;
-        this.lat = lat;
-        this.lon = lon;
-        this.userId = userId;
-    }
-
-    public Request() { }
+    public String getKey() {return key;}
 }

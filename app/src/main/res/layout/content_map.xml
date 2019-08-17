@@ -5,25 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MapsActivity"
-    tools:showIn="@layout/activity_maps">
+    tools:context=".ChooseMyLocationMapActivity"
+    tools:showIn="@layout/activity_choose_location">
 
-
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/search"
-        android:elevation="5dp"
-        android:queryHint="Search"
-        android:layout_margin="10dp"
-        android:iconifiedByDefault="false"
-        android:background="#fff"/>
 
     <Button
         android:id="@+id/btnChooseMyLocation"
@@ -34,6 +18,21 @@
         android:layout_marginBottom="20dp"
         android:text="Choose my location" />
 
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#fff"
+        android:elevation="5dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </RelativeLayout>

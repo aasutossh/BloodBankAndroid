@@ -11,14 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ShowDatabaseActivity"></activity>
+        <activity android:name=".MyFeedActivity"></activity>
+        <activity android:name=".ShowLocationActivity" />
+        <activity android:name=".ShowDatabaseActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".ShowAllMapActivity" />
         <activity android:name=".DonateFeedActivity" />
         <activity android:name=".RequestFeedActivity" />
         <activity
-            android:name=".MapsActivity"
+            android:name=".ChooseMyLocationMapActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".FeedActivity" />

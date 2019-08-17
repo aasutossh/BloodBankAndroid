@@ -1,12 +1,8 @@
 package pn.com.aasutosh.bloodbankandroid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,16 +26,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 
 public class ProfileActivity extends AppCompatActivity {
+    DatabaseReference databaseReference;
     private EditText etName, etPhoneNum;
     private Spinner spinnerBloodGroup, spinnerDistricts;
     private Button btnChooseDate, btnCreateMyProfile;
-
     private FirebaseUser user;
     private String userId, lastDonatedDate, name, phoneNum, bloodGroup, district;
     private int mYear, mMonth, mDay;
     private ProgressBar progressBar;
-
-    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    storeToDatabase();
+                storeToDatabase();
             }
         });
 
@@ -136,7 +133,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (!name.isEmpty() && phoneNum.length() == 10) {
 //        on successful validation
 //            store to database
-            Profile profile = new Profile(name, phoneNum, bloodGroup, district, lastDonatedDate, district+"_"+bloodGroup, userId);
+            Profile profile = new Profile(name, phoneNum, bloodGroup, district, lastDonatedDate, district + "_" + bloodGroup, userId);
             databaseReference.child(userId).setValue(profile).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {

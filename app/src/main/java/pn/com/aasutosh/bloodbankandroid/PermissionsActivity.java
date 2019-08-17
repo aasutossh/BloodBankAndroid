@@ -31,7 +31,7 @@ public class PermissionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_permissions);
 
-        if(ContextCompat.checkSelfPermission(PermissionsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(PermissionsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             startActivity(new Intent(PermissionsActivity.this, ProfileActivity.class));
             finish();
 //            return;
@@ -53,7 +53,7 @@ public class PermissionsActivity extends AppCompatActivity {
 
                             @Override
                             public void onPermissionDenied(PermissionDeniedResponse response) {
-                                if(response.isPermanentlyDenied()){
+                                if (response.isPermanentlyDenied()) {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(PermissionsActivity.this);
                                     builder.setTitle("Permission Denied")
                                             .setMessage("Permission to access device location is permanently denied. you need to go to setting to allow the permission.")

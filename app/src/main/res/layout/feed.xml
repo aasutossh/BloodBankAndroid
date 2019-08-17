@@ -9,20 +9,20 @@
 
     <Button
         android:id="@+id/btnDonateFeed"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="53dp"
         android:text="Donate Feed"
         android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnRequestFeed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRequestFeed" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnRequestFeed"
-        android:layout_width="wrap_content"
+        android:layout_width="171dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="266dp"
+        android:layout_marginBottom="66dp"
         android:text="Request Feed"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         android:text="Choose a feed type"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
