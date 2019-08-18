@@ -119,6 +119,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 storeToDatabase();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 
@@ -138,7 +139,7 @@ public class ProfileActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Toast.makeText(ProfileActivity.this, "Profile created", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
                 }
             });
         }
