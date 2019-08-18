@@ -1,11 +1,14 @@
 package pn.com.aasutosh.bloodbankandroid;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +23,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
 public class DonateBloodActivity extends AppCompatActivity {
     private Spinner spinnerBloodGroup;
     private EditText name;
@@ -32,7 +39,7 @@ public class DonateBloodActivity extends AppCompatActivity {
     private double lon;
     private String userId;
     private Profile profile;
-
+    private TextView tvLocation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +51,7 @@ public class DonateBloodActivity extends AppCompatActivity {
         location = findViewById(R.id.btnLocation);
         postMyRequest = findViewById(R.id.btnPostRequest);
         postMyRequest.setEnabled(false);
+        tvLocation = findViewById(R.id.tvLocation);
         user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
         userId = user.getUid();
@@ -132,8 +140,29 @@ public class DonateBloodActivity extends AppCompatActivity {
                 lat = coordinates.getDouble("Lat");
                 lon = coordinates.getDouble("Lon");
                 postMyRequest.setEnabled(true);
-
+                tvLocation.setText(getAddress(lat, lon));
             }
         }
+    }
+    private String getAddress(double latitude, double longitude) {
+        Geocoder geocoder;
+        List<Address> addresses = null;
+        geocoder = new Geocoder(this, Locale.getDefault());
+
+
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert addresses != null;
+        if (addresses.size() != 0) {
+            if (addresses.get(0).getLocality() != null)
+                return "in " + addresses.get(0).getLocality();
+
+        }
+
+        return "";
+
     }
 }

@@ -24,6 +24,8 @@
     <string name="et_amount">Pints of blood needed</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="google_maps_api">AIzaSyBevxdmgwJ0QgDItkUoaAdpBc7PW5tYpUQ</string>
+    <string name="choose_date">Choose Date</string>
+    <string name="choose_time">Choose Time</string>
 
     <string-array name="spinner_blood_group">
         <item>A +ve</item>

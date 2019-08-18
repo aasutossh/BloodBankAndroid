@@ -171,7 +171,6 @@ public class RequestFeedActivity extends AppCompatActivity implements AdapterVie
     }
 
     private String getAddress(double latitude, double longitude) {
-        Log.i("Latlng", latitude + " " + longitude);
         Geocoder geocoder;
         List<Address> addresses = null;
         geocoder = new Geocoder(this, Locale.getDefault());

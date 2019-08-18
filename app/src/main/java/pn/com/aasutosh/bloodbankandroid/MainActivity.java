@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnShowList;
     Button btnEditProfile;
     Button btnShowDatabase;
+    Button btnFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnShowList = findViewById(R.id.btnShowList);
         btnShowDatabase = findViewById(R.id.btnShowDatabase);
         btnEditProfile = findViewById(R.id.btnEditProfile);
+        btnFeedback = findViewById(R.id.btnFeedback);
 
 
         btnSighOut.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ShowDatabaseActivity.class));
+            }
+        });
+        btnFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), FeedbackActivity.class));
             }
         });
     }

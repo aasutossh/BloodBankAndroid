@@ -3,12 +3,16 @@ package pn.com.aasutosh.bloodbankandroid;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -19,7 +23,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class RequestBloodActivity extends AppCompatActivity implements View.OnClickListener {
@@ -38,6 +45,8 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
     private String time, date;
     private double lat;
     private double lon;
+    private int flag = 0;
+    private TextView tvLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +66,7 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
         postMyRequest.setEnabled(false);
         txtTime = findViewById(R.id.etChooseTime);
         txtDate = findViewById(R.id.etChooseDate);
+        tvLocation = findViewById(R.id.tvLocation);
         userId = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
 
@@ -124,6 +134,9 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
+            if(date==null) {
+                flag++;
+            }
         }
     }
 
@@ -177,9 +190,34 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
                 assert coordinates != null;
                 lat = coordinates.getDouble("Lat");
                 lon = coordinates.getDouble("Lon");
-                postMyRequest.setEnabled(true);
+                flag++;
+                if(flag == 2) {
+                    postMyRequest.setEnabled(true);
+                }
+                tvLocation.setText(getAddress(lat, lon));
 
             }
         }
+    }
+    private String getAddress(double latitude, double longitude) {
+        Geocoder geocoder;
+        List<Address> addresses = null;
+        geocoder = new Geocoder(this, Locale.getDefault());
+
+
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert addresses != null;
+        if (addresses.size() != 0) {
+            if (addresses.get(0).getLocality() != null)
+                return "in " + addresses.get(0).getLocality();
+
+        }
+
+        return "";
+
     }
 }

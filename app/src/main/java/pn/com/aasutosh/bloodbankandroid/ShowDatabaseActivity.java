@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 public class ShowDatabaseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     RecyclerView recyclerView;
     DatabaseReference databaseProfile;
-    TextView tvPhone;
     private Spinner spinnerDistrict, spinnerBloodGroup;
     private String txtDistrict, txtBloodGroup;
 
@@ -194,6 +193,9 @@ public class ShowDatabaseActivity extends AppCompatActivity implements AdapterVi
         String inputString2 = myFormat.format(date);
         long days = 0;
         try {
+            if(inputString1 == null) {
+                return "Person is available for donation";
+            }
             Date date1 = myFormat.parse(inputString1);
             Date date2 = myFormat.parse(inputString2);
             assert date2 != null;
