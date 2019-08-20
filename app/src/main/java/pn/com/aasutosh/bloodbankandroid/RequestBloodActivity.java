@@ -130,13 +130,17 @@ public class RequestBloodActivity extends AppCompatActivity implements View.OnCl
                                               int monthOfYear, int dayOfMonth) {
                             date = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
                             txtDate.setText(date);
+                            if(date != null) {
+                                if(!date.isEmpty())
+                                    flag ++;
+                                if(flag == 2) {
+                                    postMyRequest.setEnabled(true);
+                                }
+                            }
 
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
-            if(date==null) {
-                flag++;
-            }
         }
     }
 

@@ -34,6 +34,10 @@ public class RequestViewHolder extends RecyclerView.ViewHolder {
         TextView tvAddress = myView.findViewById(R.id.tvRequestListAddress);
         tvAddress.setText(address);
     }
+    public void setDateAddress(String dateAddress) {
+        TextView tvDateAddress = myView.findViewById(R.id.tvRequestListDateTime);
+        tvDateAddress.setText(dateAddress);
+    }
     public void setPostedBy(String nameOfPoster) {
         TextView tvPostedBy = myView.findViewById(R.id.tvRequestListPostedBy);
         tvPostedBy.setText(nameOfPoster);

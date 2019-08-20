@@ -77,25 +77,7 @@ public class DonateFeedActivity extends AppCompatActivity implements AdapterView
                     setPostedByField(donateViewHolder, donate.getUserId());
                 }
 
-                private void setPostedByField(final DonateViewHolder donateViewHolder, String userId) {
-                    Query q = databaseProfile.orderByChild("userId").equalTo(userId);
-                    q.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for (DataSnapshot profileDataSnapshot: dataSnapshot.getChildren()) {
-                                Profile profile = profileDataSnapshot.getValue(Profile.class);
-                                assert profile != null;
-                                donateViewHolder.setPostedBy("Posted By: " + profile.getName());
 
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            Toast.makeText(DonateFeedActivity.this, "Read Unsuccessful", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
 
                 @Override
                 public void onBindViewHolder(@NotNull DonateViewHolder viewHolder, final int position) {
@@ -155,6 +137,8 @@ public class DonateFeedActivity extends AppCompatActivity implements AdapterView
                     donateViewHolder.setName(donate.getName());
                     donateViewHolder.setBloodGroup(donate.getBloodGroup());
                     donateViewHolder.setPhoneNum(donate.getPhoneNum());
+                    donateViewHolder.setAddress(getAddress(donate.getLat(), donate.getLng()));
+                    setPostedByField(donateViewHolder, donate.getUserId());
                 }
 
 
@@ -170,23 +154,7 @@ public class DonateFeedActivity extends AppCompatActivity implements AdapterView
 
     }
 
-    //    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//
-//        FirebaseRecyclerAdapter<Donate, DonateViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Donate, DonateViewHolder>
-//                (Donate.class, R.layout.activity_donate_list, DonateViewHolder.class, databaseDonates) {
-//            @Override
-//            protected void populateViewHolder(DonateViewHolder donateViewHolder, Donate donate, int i) {
-//                donateViewHolder.setName(donate.getName());
-//                donateViewHolder.setQuantity(donate.getQuantity());
-//                donateViewHolder.setBloodGroup(donate.getBloodGroup());
-//                donateViewHolder.setPhoneNum(donate.getPhoneNum());
-//            }
-//        };
-//        recyclerView.setAdapter(firebaseRecyclerAdapter);
-//    }
+
     private String getAddress(double latitude, double longitude) {
         Geocoder geocoder;
         List<Address> addresses = null;
@@ -200,7 +168,6 @@ public class DonateFeedActivity extends AppCompatActivity implements AdapterView
         }
         assert addresses != null;
         if (addresses.size() != 0) {
-//            return addresses.get(0).getLocality();
             if (addresses.get(0).getLocality() != null)
                 return "in " + addresses.get(0).getLocality();
 
@@ -208,5 +175,24 @@ public class DonateFeedActivity extends AppCompatActivity implements AdapterView
 
         return "";
 
+    }
+    private void setPostedByField(final DonateViewHolder donateViewHolder, String userId) {
+        Query q = databaseProfile.orderByChild("userId").equalTo(userId);
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot profileDataSnapshot: dataSnapshot.getChildren()) {
+                    Profile profile = profileDataSnapshot.getValue(Profile.class);
+                    assert profile != null;
+                    donateViewHolder.setPostedBy("Posted By: " + profile.getName());
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(DonateFeedActivity.this, "Read Unsuccessful", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

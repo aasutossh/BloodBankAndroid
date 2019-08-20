@@ -75,28 +75,11 @@ public class RequestFeedActivity extends AppCompatActivity implements AdapterVie
                     requestViewHolder.setBloodGroup(request.getBloodGroup());
                     requestViewHolder.setPhoneNum(request.getPhoneNum());
                     requestViewHolder.setAddress(getAddress(request.getLat(), request.getLon()));
+                    requestViewHolder.setDateAddress(("On " + request.getDate() +" at " +request.getTime()));
                     setPostedByField(requestViewHolder, request.getUserId());
                 }
 
-                private void setPostedByField(final RequestViewHolder requestViewHolder, String userId) {
-                    Query q = databaseProfile.orderByChild("userId").equalTo(userId);
-                    q.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for (DataSnapshot profileDataSnapshot: dataSnapshot.getChildren()) {
-                                Profile profile = profileDataSnapshot.getValue(Profile.class);
-                                assert profile != null;
-                                requestViewHolder.setPostedBy("Posted By: " + profile.getName());
 
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                            Toast.makeText(RequestFeedActivity.this, "Read Unsuccessful", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
 
 
                 //
@@ -154,7 +137,11 @@ public class RequestFeedActivity extends AppCompatActivity implements AdapterVie
                     requestViewHolder.setName(request.getName());
                     requestViewHolder.setQuantity(request.getQuantity());
                     requestViewHolder.setBloodGroup(request.getBloodGroup());
+                    requestViewHolder.setDateAddress(("On " + request.getDate() +" at " +request.getTime()));
+                    requestViewHolder.setAddress(getAddress(request.getLat(), request.getLon()));
                     requestViewHolder.setPhoneNum(request.getPhoneNum());
+                    setPostedByField(requestViewHolder, request.getUserId());
+
                 }
 
 
@@ -190,6 +177,25 @@ public class RequestFeedActivity extends AppCompatActivity implements AdapterVie
 
         return "";
 
+    }
+    private void setPostedByField(final RequestViewHolder requestViewHolder, String userId) {
+        Query q = databaseProfile.orderByChild("userId").equalTo(userId);
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot profileDataSnapshot: dataSnapshot.getChildren()) {
+                    Profile profile = profileDataSnapshot.getValue(Profile.class);
+                    assert profile != null;
+                    requestViewHolder.setPostedBy("Posted By: " + profile.getName());
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(RequestFeedActivity.this, "Read Unsuccessful", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

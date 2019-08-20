@@ -64,6 +64,13 @@
             android:text="Address"
             android:textColor="#fff" />
         <TextView
+            android:id="@+id/tvRequestListDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="DateTime"
+            android:textColor="#fff" />
+        <TextView
             android:id="@+id/tvRequestListPostedBy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package pn.com.aasutosh.bloodbankandroid;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 //
         btnSighOut = findViewById(R.id.btnSignOut);
+        btnSighOut.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
         btnDonateBlood = findViewById(R.id.btnDonateBlood);
         btnRequestBlood = findViewById(R.id.btnRequestBlood);
         btnShowMap = findViewById(R.id.btnShowMap);
