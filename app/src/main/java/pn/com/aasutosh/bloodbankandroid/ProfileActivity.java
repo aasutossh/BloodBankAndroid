@@ -145,9 +145,8 @@ public class ProfileActivity extends AppCompatActivity {
         }
         if (name.isEmpty())
             etName.setError("Name is required");
-        if (!phoneNum.startsWith("9"))
+        if (!phoneNum.startsWith("9") && phoneNum.length() != 0)
             etPhoneNum.setError("Please enter valid phone number");
-
 
     }
 }
